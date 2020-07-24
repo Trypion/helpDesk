@@ -13,8 +13,7 @@ app.use(bodyParser.urlencoded({
 
 db.mongoose.connect(db.url, {
         useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useFindAndModify: false
+        useUnifiedTopology: true
     })
     .then(() => {
         console.log("Conectado ao banco");
@@ -25,12 +24,10 @@ db.mongoose.connect(db.url, {
     });
 
 
-
-
 require('./routes/ticket.routes')(app);
 
 const port = 3000
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+app.listen(port, () => console.log(`app listening at http://localhost:${port}`))

@@ -37,7 +37,7 @@ exports.delete = (req, res) => {
 
     console.log(req.params.id);
 
-    Ticket.findByIdAndRemove(id).then((data) => {
+    Ticket.findOneAndDelete(id).then((data) => {
         if (!data) {
             res.status(404).send({
                 message: `Não foi possivel deletar o ticket com o id=${id}. Talvez o ticket não foi encontrado`
